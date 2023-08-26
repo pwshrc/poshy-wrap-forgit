@@ -3,9 +3,9 @@ $ErrorActionPreference = "Stop"
 Set-StrictMode -Version Latest
 
 
-if (-not (Test-Command fzf)) {
+if (-not (Test-Command fzf) -and (-not $Global:PWSHRC_FORCE_MODULES_EXPORT_UNSUPPORTED)) {
     return
-} elseif (-not (Test-Command forgit)) {
+} elseif (-not (Test-Command forgit) -and (-not $Global:PWSHRC_FORCE_MODULES_EXPORT_UNSUPPORTED)) {
     return
 }
 
