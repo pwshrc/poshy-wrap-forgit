@@ -13,94 +13,117 @@ if (-not (Test-Command fzf) -and (-not (Get-Variable -Name PWSHRC_FORCE_MODULES_
 function forgit-log {
     forgit log @args
 }
+Export-ModuleMember -Function forgit-log
 
 function forgit-diff {
     forgit diff @args
 }
+Export-ModuleMember -Function forgit-diff
 
 function forgit-add {
     forgit add @args
 }
+Export-ModuleMember -Function forgit-add
 
 function forgit-reset-head {
     forgit reset_head @args
 }
+Export-ModuleMember -Function forgit-reset-head
 
 function forgit-stash-show {
     forgit stash_show @args
 }
+Export-ModuleMember -Function forgit-stash-show
 
 function forgit-stash-push {
     forgit stash_push @args
 }
+Export-ModuleMember -Function forgit-stash-push
 
 function forgit-clean {
     forgit clean @args
 }
+Export-ModuleMember -Function forgit-clean
 
 function forgit-cherry-pick {
     forgit cherry_pick @args
 }
+Export-ModuleMember -Function forgit-cherry-pick
 
 function forgit-cherry-pick-from-branch {
     forgit cherry_pick_from_branch @args
 }
+Export-ModuleMember -Function forgit-cherry-pick-from-branch
 
 function forgit-rebase {
     forgit rebase @args
 }
+Export-ModuleMember -Function forgit-rebase
 
 function forgit-fixup {
     forgit fixup @args
 }
+Export-ModuleMember -Function forgit-fixup
 
 function forgit-checkout-file {
     forgit checkout_file @args
 }
+Export-ModuleMember -Function forgit-checkout-file
 
 function forgit-checkout-branch {
     forgit checkout_branch @args
 }
+Export-ModuleMember -Function forgit-checkout-branch
 
 function forgit-checkout-tag {
     forgit checkout_tag @args
 }
+Export-ModuleMember -Function forgit-checkout-tag
 
 function forgit-checkout-commit {
     forgit checkout_commit @args
 }
+Export-ModuleMember -Function forgit-checkout-commit
 
 function forgit-branch-delete {
     forgit branch_delete @args
 }
+Export-ModuleMember -Function forgit-branch-delete
 
 function forgit-revert-commit {
     forgit revert_commit @args
 }
+Export-ModuleMember -Function forgit-revert-commit
 
 function forgit-blame {
     forgit blame @args
 }
+Export-ModuleMember -Function forgit-blame
 
 function forgit-ignore {
     forgit ignore @args
 }
+Export-ModuleMember -Function forgit-ignore
 
 function forgit-ignore-update {
     forgit ignore_update @args
 }
+Export-ModuleMember -Function forgit-ignore-update
 
 function forgit-ignoreget() {
     forgit ignore_get @args
 }
+Export-ModuleMember -Function forgit-ignoreget
 
 function forgit-ignore-list {
     forgit ignore_list @args
 }
+Export-ModuleMember -Function forgit-ignore-list
 
 function forgit-ignore-clean {
     forgit ignore_clean @args
 }
+Export-ModuleMember -Function forgit-ignore-clean
 
 $forgit_add = ($Env:forgit_add ?? "ga")
 $forgit_reset_head = ($Env:forgit_reset_head ?? "grh")
@@ -140,5 +163,23 @@ Set-Alias -Name $forgit_rebase -Value forgit-rebase
 Set-Alias -Name $forgit_fixup -Value forgit-fixup
 Set-Alias -Name $forgit_blame -Value forgit-blame
 
-
-Export-ModuleMember -Function * -Alias *
+Export-ModuleMember -Alias @(
+    $forgit_add,
+    $forgit_reset_head,
+    $forgit_log,
+    $forgit_diff,
+    $forgit_ignore,
+    $forgit_checkout_file,
+    $forgit_checkout_branch,
+    $forgit_checkout_commit,
+    $forgit_checkout_tag,
+    $forgit_branch_delete,
+    $forgit_revert_commit,
+    $forgit_clean,
+    $forgit_stash_show,
+    $forgit_stash_push,
+    $forgit_cherry_pick,
+    $forgit_rebase,
+    $forgit_fixup,
+    $forgit_blame
+)
